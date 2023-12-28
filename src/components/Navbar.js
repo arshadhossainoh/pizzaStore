@@ -5,8 +5,14 @@ import "../styles/Navbar.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faBars } from "@fortawesome/free-solid-svg-icons";
+
 function Navbar() {
   const [openLinks, setOpenLinks] = useState(false);
+
+  const toggleNavbar = () => {
+    setOpenLinks(!openLinks);
+  };
+
   return (
     <div className="navbar">
       <div className="leftSide" id={openLinks ? "open" : "close"}>
@@ -24,7 +30,7 @@ function Navbar() {
         <Link to="/menu">Menu</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
-        <button>
+        <button onClick={toggleNavbar}>
           <FontAwesomeIcon icon={faBars} />
         </button>
       </div>
